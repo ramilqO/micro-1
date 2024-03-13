@@ -33,7 +33,7 @@ jobs:
         run: echo ::set-output name=PACKAGE_VERSION::$(node -p "require('./package.json').version")
 
       - name: Update package version
-        run: npm version ${{ steps.get_version.outputs.PACKAGE_VERSION }} --no-git-tag-version
+        run: npm version ${{ steps.get_version.outputs.PACKAGE_VERSION }}-patch --no-git-tag-version
 
       - name: Publish updated package
         run: npm publish --access public --tag latest
