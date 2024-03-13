@@ -26,9 +26,7 @@ jobs:
         run: npm cache clean --force
 
       - name: Login to npm registry
-        run: npm login --registry=https://registry.npmjs.org/ --scope=@rossmanov --always-auth --auth-type=access-token
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
 
       - name: Update package code
         run: |
