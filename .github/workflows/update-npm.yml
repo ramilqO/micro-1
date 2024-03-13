@@ -1,0 +1,22 @@
+name: "Update NPM Package on Push"
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  update-npm-package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install npm dependencies
+        run: npm install
+
+      - name: Update package code
+        run: |
+          npm update @rossmanov/micro-1
+          npm version patch
+          npm publish --access public
