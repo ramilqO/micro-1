@@ -22,6 +22,11 @@ jobs:
       - name: Install npm dependencies
         run: npm install
 
+      - name: Login to npm registry
+        run: npm login --registry=https://registry.npmjs.org/ --scope=@rossmanov --always-auth --auth-type=legacy
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Update package code
         run: |
           npm update @rossmanov/micro-1
