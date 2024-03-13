@@ -1,4 +1,4 @@
-name: "Update NPM Package on Push"
+name: Update NPM Package on Push
 on:
   push:
     branches:
@@ -7,14 +7,17 @@ on:
 jobs:
   update-npm-package:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
+        with:
+          fetch-depth: 2
+      - name: Set up Git
+        run: |
+          git config user.email "you@example.com"
+          git config user.name "Your Name"
       - name: Install npm dependencies
         run: npm install
-
       - name: Update package code
         run: |
           npm update @rossmanov/micro-1
