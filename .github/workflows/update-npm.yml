@@ -23,7 +23,7 @@ jobs:
         run: npm install
 
       - name: Clear npm cache
-        run: npm cache clean --force
+        run: npm cache clean
 
       - name: Login to npm registry
         run: npm login --registry=https://registry.npmjs.org/ --scope=@rossmanov --always-auth --auth-type=legacy
