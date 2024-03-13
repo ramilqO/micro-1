@@ -30,6 +30,5 @@ jobs:
 
       - name: Update package code
         run: |
-          npm update @rossmanov/micro-1
           npm version patch
           npm publish --access public
