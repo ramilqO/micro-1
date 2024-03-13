@@ -23,7 +23,7 @@ jobs:
         run: npm install
 
       - name: Login to npm registry
-        run: npm login --registry=https://registry.npmjs.org/ --scope=@rossmanov --always-auth --auth-type=oauth
+        run: npm login --registry=https://registry.npmjs.org/ --scope=@rossmanov --always-auth --auth-type=legacy --password=Buterbrod228!
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
