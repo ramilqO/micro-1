@@ -7,17 +7,26 @@ on:
 jobs:
   update-npm-package:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
           fetch-depth: 2
+
       - name: Set up Git
         run: |
           git config user.email "osmanovramil823@gmail.com"
           git config user.name "Ramil Osmanov"
+
       - name: Install npm dependencies
         run: npm install
+
+      - name: Login to npm registry
+        run: npm login --registry=https://registry.npmjs.org/ --scope=@rossmanov --always-auth --auth-type=oauth
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Update package code
         run: |
           npm update @rossmanov/micro-1
