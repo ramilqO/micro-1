@@ -1,6 +1,6 @@
 function App() {
   return (
-   <div><h1>MICRO-1 HAS BEEN UPDATED</h1></div>
+   <div><h1>MICRO-1 HAS BEEN UPDATEDD</h1></div>
   )
 }
 
