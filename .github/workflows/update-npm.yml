@@ -28,8 +28,8 @@ jobs:
       - name: Login to npm registry
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
 
-      - name: Run standard-version
-        run: npx standard-version --release-as patch
+      - name: Update package version
+        run: npm version patch
 
       - name: Publish updated package
         run: npm publish --access public --tag latest
